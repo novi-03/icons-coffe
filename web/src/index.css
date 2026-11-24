@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { color-scheme: dark; -webkit-tap-highlight-color: transparent; }
+  body {
+    min-height: 100dvh;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(124, 58, 237, 0.16), transparent 60%),
+      radial-gradient(900px 500px at 110% 0%, rgba(37, 48, 96, 0.55), transparent 60%),
+      #05050a;
+    background-attachment: fixed;
+  }
+  ::selection { background: rgba(139, 92, 246, 0.45); }
+  * { scrollbar-width: thin; scrollbar-color: #253060 transparent; }
+  input[type='number']::-webkit-inner-spin-button { opacity: 0.4; }
+}
+@layer utilities {
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .text-gradient { background: linear-gradient(135deg, #fff 0%, #c4b5fd 55%, #8b5cf6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+}
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .no-print { display: none !important; }
+  body.printing > #root { display: none !important; }
+  .print-sheet { position: static !important; overflow: visible !important; }
+}
